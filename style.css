@@ -1,0 +1,170 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif!important;
+    box-sizing: border-box;
+}
+body{
+    background-color: lightgray;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 200px;
+}
+h1{
+    font-size: 80pt;
+    font-weight: 900;
+}
+
+.search{
+    border: 2px solid #000;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: transparent;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+    animation-timing-function: ease-in-out;
+    transition: 0.6s ease-in-out;
+}
+
+
+@keyframes pulse{
+    0% {box-shadow: 0 0 0px rgb(1, 90, 1);}
+    50%{box-shadow: 0 0 100px rgb(1, 90, 1);}
+    100%{box-shadow: 0 0 0px rgb(1, 90, 1);}
+
+}
+
+input[type="text"]{
+    display: none;
+    border: none;
+    background-color: transparent;
+    width: 70%;
+    height: 50px;
+    font-size: 30px;
+}
+input[type="text"]:focus{
+    outline-width: 0;
+}
+.btn{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.btn.delete{
+    display: none;
+    font-size: 40px;
+    transition: 0.3s;
+}
+.btn.delete:hover{
+    
+    color: red;
+}
+.btn.find{
+    background-image: url(images/loupe.png);
+    background-size: cover;
+    transition: 0.3s;
+    z-index: -1;
+}
+.btn.random{
+    display: none;
+    background-image: url(images/die.png);
+    background-size: cover;
+    transition: 0.3s;
+}
+.btn.random:hover{
+    animation: bounce 1s infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes bounce {
+    10%, 90% {transform: translate3d(-1px, 0, 0);} 
+    20%, 80% {transform: translate3d(2px, 0, 0);}
+    30%, 50%, 70% {transform: translate3d(-4px, 0, 0);}
+    40%, 60% {transform: translate3d(4px, 0, 0);}
+ }
+
+.btn.random.active{
+    display: flex;
+}
+.active{
+    transition: 0.6s ease-in-out;
+}
+.btn.find.active{
+    z-index: 10;
+}
+.btn.find.active:hover{
+    transform: rotate(30deg);
+}
+.search.active{
+    width: 500px;
+    animation: none;
+}
+input[type="text"].active{
+    display: block;
+}
+
+.btn.delete.active{
+    display: flex;
+}
+.phrases {
+    width: 400px;
+    max-height: 228px;
+    overflow-y: scroll;
+}
+.phrase{
+    font-size: 20px;
+    background-color: grey;
+    border-top: 0.5px solid #fff;
+    padding: 15px;
+    transition: 0.3s;
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.phrase:hover{
+    opacity: 1;
+}
+
+@media (max-width: 500px){
+    .wrapper{
+        margin-top: 100px;
+    }
+    h1{
+        font-size: 38pt;
+    }
+    .search{
+        width: 75px;
+        height: 75px;
+    }
+    .search.active{
+        width: 350px;
+    }
+    .btn{
+        width: 25px;
+        height: 25px;
+    }
+    .btn.delete{
+        font-size: 30px;
+    }
+    .btn.delete:hover{
+        color: #000;
+    }
+    .phrases{
+        width: 290px;
+    }
+    input[type="text"]{
+        font-size: 24px;
+    }
+}
